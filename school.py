@@ -1,22 +1,12 @@
 import sqlite3
 con=sqlite3.connect('school.db')
 try:
-    con.execute('''CREATE TABLE Students
-            (REGNO INTEGER PRIMARY KEY AUTOINCREMENT    NOT NULL,
-            CLASS_SECTION INTEGER NOT NULL,
-            NAME   TEXT    NOT NULL,
-            ADDRESS   TEXT,
-            FOREIGN KEY(CLASS_SECTION) REFERENCES Sections(ID))''')
-    
-    
+    con.execute('''CREATE TABLE Students(REGNO INTEGER PRIMARY KEY AUTOINCREMENT    NOT NULL,CLASS_SECTION INTEGER NOT NULL,NAME   TEXT    NOT NULL,ADDRESS   TEXT,FOREIGN KEY(CLASS_SECTION) REFERENCES Sections(ID))''')
 except Exception as e:
     print(e)
 
 try:
-    con.execute('''CREATE TABLE Sections 
-    (ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    CLASSNO INTEGER NOT NULL,
-    SECTION TEXT)''')
+    con.execute('''CREATE TABLE Sections(ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,CLASSNO INTEGER NOT NULL,SECTION TEXT)''')
 except Exception as e:
     print(e)
 
